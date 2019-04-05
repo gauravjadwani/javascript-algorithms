@@ -31,6 +31,10 @@ class Stack{
     delete this.storage[index];
     return value;
   }
+
+  peep(){
+    return this.storage[this.count];
+  }
 }
 
 let stack=new Stack();
