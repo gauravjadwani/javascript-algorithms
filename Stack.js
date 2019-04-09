@@ -14,16 +14,19 @@ class Stack{
     if(this.count === -1){
       return undefined;
     }
-    let element=this.erase(this.count)
+    let element=this.erase(this.count - 1)
     this.count--;
+    this.reorder();
     return element;
   }
-
-  display(){
+  reorder(){
     let arr=this.storage.filter(function (el) {
       return el != undefined;
     });
-    return arr;
+    this.storage=arr
+  }
+  display(){
+    return this.storage;
   }
 
   erase(index){
@@ -33,15 +36,23 @@ class Stack{
   }
 
   peep(){
-    return this.storage[this.count];
+    return this.storage[this.count - 1];
   }
 }
 
 let stack=new Stack();
 stack.push(1);
 stack.push(2);
-stack.push(3);
-(stack.push(4));
-(stack.pop());
-console.log(stack.erase(1));
+console.log(stack.pop());
 console.log(stack.display())
+// stack.push(3);
+// (stack.push(4));
+// (stack.pop());
+// (stack.erase(3));
+// console.log(stac k.erase(1));
+// console.log(stack.display());
+// (stack.push(5));
+// (stack.push(6));
+// console.log((stack.pop()),'poped');
+// (stack.pop());
+// console.log(stack.display())
